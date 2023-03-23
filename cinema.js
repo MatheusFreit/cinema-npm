@@ -1,7 +1,6 @@
 const prompt = require('prompt-sync')({ sigint: true });
 
-
-let pergunta = -1;
+let pergunta = [];
 let lista = [];
 
 let pgt = prompt("Você quer comprar ingresso? ")
@@ -9,14 +8,15 @@ let sim = String(pgt).toLowerCase();
 let nao = String(pgt).toLowerCase();
 
 if(nao==="nao"){
-    console.log("okay, o serviço cinemático agradece!")
+    console.log("okay, o serviço cinemático agradece!");
 }else if(sim ==="sim"){
+    let op = -1;
     do {
         console.log("Escolha a opção tarefa:");
         console.log("0 - Sair");
         console.log("1 - Comprar um ingresso!");
         console.log("2 - Visualizar lista de compras");
-        let opção = prompt("Qual é a opção? ")
+        let opção = prompt("Qual é a opção? ");
         let op = Number(opção);
         switch (op){
             case 0:
@@ -35,10 +35,11 @@ if(nao==="nao"){
     } while(op!==0);
 
 function ComprarIngresso(){
-    console.log("O seu ingresso vai ser 1-meia ou 2-inteiro?")
-        let valor = prompt()
+    console.log("O seu ingresso vai ser 1-meia ou 2-inteiro?");
+    console.log("O ingresso meia está de R$ 6,50");
+    console.log("O ingresso inteiro está de R$ 13,00");
+        let valor = prompt("Qual será o ingresso? ")
         let val = Number(valor);
-
         switch (val){
             case 1:
                 ingressoMeia();
@@ -54,15 +55,15 @@ function ComprarIngresso(){
 
 function ingressoMeia(){
     let  pergunta = prompt("Quantidade de ingresso meia? ");
-    lista.push(pergunta);
+    lista.push(`${pergunta} meia`);
 }
 function ingressoInteiro(){
     let  pergunta = prompt("Quantidade de ingresso interio? ");
-    lista.push(pergunta);
+    lista.push(`${pergunta} inteiro`);
 }
 function visualizar(){
     console.log("-----------Valor final da Compra--------------");
-    pergunta.forEach((pergunta,indice)=>{console.log(`${indice+1} - ${pergunta}`)})
+    lista.forEach((pergunta,indice)=>{console.log(`${indice+1} - ${pergunta}`)})
 }
    
 }
