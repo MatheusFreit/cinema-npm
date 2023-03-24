@@ -54,11 +54,11 @@ if (nao === "nao") {
 
   function ingressoMeia() {
     let pergunta = prompt("Quantidade de ingresso meia? ");
-    lista.push(`${pergunta} meia`);
+    lista.push(`${pergunta} ingresso meia`);
   }
   function ingressoInteiro() {
     let pergunta = prompt("Quantidade de ingresso interio? ");
-    lista.push(`${pergunta} interio`);
+    lista.push(`${pergunta} ingresso interio`);
   }
   function visualizar() {
     console.log("-----------Valor final da Compra--------------");
