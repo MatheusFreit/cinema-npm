@@ -1,6 +1,7 @@
 const prompt = require('prompt-sync')({ sigint: true });
 
 let lista = [];
+let ingresso = [];
 
 let pgt = prompt("Você quer comprar ingresso? ");
 let sim = String(pgt).toLowerCase();
@@ -33,10 +34,14 @@ if (nao === "nao") {
     }
   } while (op !== 0);
 
+
+
   function ComprarIngresso() {
+    let valorMeia = 6.50;
+    let valorInteiro = 13.00;
     console.log("O seu ingresso vai ser 1-meia ou 2-inteiro?");
-    console.log("O ingresso meia está de R$ 6,50");
-    console.log("O ingresso inteiro está de R$ 13,00");
+    console.log("O ingresso meia está de R$ " + valorMeia);
+    console.log("O ingresso inteiro está de R$ "+ valorInteiro);
     let valor = prompt("Qual será o ingresso? ");
     let val = Number(valor);
     switch (val) {
@@ -54,11 +59,12 @@ if (nao === "nao") {
 
   function ingressoMeia() {
     let pergunta = prompt("Quantidade de ingresso meia? ");
-    lista.push(`${pergunta} ingresso meia`);
-  }
+    if(pergunta == 1 ){lista.push(`${pergunta} ingresso meia`);}else if(pergunta !==1){lista.push(`${pergunta} ingressos meia`);}
+   }
   function ingressoInteiro() {
     let pergunta = prompt("Quantidade de ingresso interio? ");
-    lista.push(`${pergunta} ingresso interio`);
+    if(pergunta ==1){lista.push(`${pergunta} ingresso interio`);}else if(pergunta !==1){lista.push(`${pergunta} ingressos inteiros`);}
+    
   }
   function visualizar() {
     console.log("-----------Valor final da Compra--------------");
